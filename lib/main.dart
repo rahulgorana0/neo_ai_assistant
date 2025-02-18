@@ -11,6 +11,7 @@ import 'package:neo_ai_assistant/model/todo/todo.dart';
 import 'package:neo_ai_assistant/screen/splash_screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'helper/pref.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,6 +45,11 @@ Future<void> main() async {
   Get.put(TodoController(), permanent: true);
 
   runApp(const MyApp());
+}
+
+Future<void> requestPermissions() async {
+  await Permission.microphone.request();
+  await Permission.speech.request();
 }
 
 class MyApp extends StatelessWidget {

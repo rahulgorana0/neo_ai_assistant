@@ -18,7 +18,7 @@ class HabitAdapter extends TypeAdapter<Habit> {
     };
     return Habit(
       title: fields[0] as String,
-      progressColor: Color(fields[2] as int),
+      progressColor: fields[2] as Color,
       habitIcon: fields[3] as int,
       key: fields[4] as int?,
       progress: (fields[1] as List?)?.cast<bool>(),

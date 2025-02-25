@@ -113,7 +113,7 @@ class ImageController extends GetxController {
     status.value = Status.loading;
 
     try {
-      final images = await APIs.searchAiImages(prompt);
+      final images = await APIs.generateGeminiImages(prompt);
       if (images.isEmpty) {
         MyDialog.error('No images found. Try again later.');
         status.value = Status.none;
